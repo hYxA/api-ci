@@ -5,6 +5,7 @@ stack: jdk 11  # версия JDK
 branches:
   only:
     - master  # ветка git
+    - JSON_Schema
 
 build: off  # будем использовать свой скрипт сборки
 
