@@ -4,6 +4,8 @@ stack: jdk 11  # версия JDK
 
 branches:
   only:
+    - lesson  # ветка git
+    - master  # ветка git
     - JSON_Schema  # ветка git
 
 
