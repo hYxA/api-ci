@@ -14,5 +14,5 @@ install:
   - java -jar ./artifacts/app-mbank.jar &
 
 build_script:
-  - ./gradlew --access
+  - ./gradlew -access
   - ./gradlew test --info  # запускаем тест, флаг --info позволяет выводить больше информации
