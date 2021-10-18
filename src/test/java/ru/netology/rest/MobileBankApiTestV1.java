@@ -23,6 +23,6 @@ public class MobileBankApiTestV1 {
                 .header("Content-Type", "application/json; charset=UTF-8")
                 .body("", hasSize(3))
                 .body("[0].currency", equalTo("RUB"))
-                .body("[0].balance", greaterThanOrEqualTo("0"));
+                .body("[0].balance", greaterThanOrEqualTo(0));
     }
 }
