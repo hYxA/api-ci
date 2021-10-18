@@ -4,8 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
-import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.hasSize;
+import static org.hamcrest.Matchers.*;
 
 public class MobileBankApiTestV1 {
     @Test
@@ -23,6 +22,7 @@ public class MobileBankApiTestV1 {
                 .body(matchesJsonSchemaInClasspath("accounts.schema.json"))
                 .header("Content-Type", "application/json; charset=UTF-8")
                 .body("", hasSize(3))
-                .body("[0].currency", equalTo("RUB"));
+                .body("[0].currency", equalTo("RUB"))
+                .body("[0].balance", greaterThanOrEqualTo("0"));
     }
 }
