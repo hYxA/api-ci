@@ -27,10 +27,15 @@
         "type": "integer"
       },
       "currency": {
-        "required": [
-          "RUB",
-          "USD"
-        ]
+        "type": "string",
+        "properties": {
+          "currency-name": {
+            "enum": [
+              "RUB",
+              "USD"
+            ]
+          }
+        }
       }
     }
   }

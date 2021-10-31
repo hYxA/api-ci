@@ -39,6 +39,22 @@ public class MobileBankApiTestV1 {
     }
 
     @Test
+    void shouldMatchCurrency() {
+//        Given - When - Then
+//        Предусловия
+        given()
+                .baseUri("http://localhost:9999/api/v1")
+//        Выполняемые действия
+                .when()
+                .get("/demo/accounts")
+//        Проверки
+                .then()
+                .statusCode(200)
+                .body("[1].currency", equalTo("USD"))
+                .body(matchesJsonSchemaInClasspath("accounts.schema.json"));
+    }
+
+    @Test
     void shouldMatchHeader() {
 //        Given - When - Then
 //        Предусловия
