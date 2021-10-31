@@ -4,8 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
-import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.hasSize;
+import static org.hamcrest.Matchers.*;
 
 public class MobileBankApiTestV1 {
     @Test
@@ -67,5 +66,19 @@ public class MobileBankApiTestV1 {
 //        Проверки
                 .then()
                 .body("", hasSize(3));
+    }
+
+    @Test
+    void shouldGreaterThanZero() {
+//        Given - When - Then
+//        Предусловия
+        given()
+                .baseUri("http://localhost:9999/api/v1")
+//        Выполняемые действия
+                .when()
+                .get("/demo/accounts")
+//        Проверки
+                .then()
+                .body("[2].balance", greaterThanOrEqualTo(0));
     }
 }
